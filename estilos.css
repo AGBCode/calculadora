@@ -6,8 +6,8 @@
 .resultado{
     display: flex;
     justify-content:flex-end;
-    width: 360px;
-    height:calc(100% - 75%);
+    width: 100%;
+    height:calc(100% - 76%);
     background: black;
     color: white;
     font-family: 'Poiret One', cursive;
@@ -24,27 +24,27 @@ img{
 }
 article{
 
-width: 360px;
-height: 70%;
+width: auto;
+height:81.8%;
 
    
 }
 .b{
 
-    width: 360px;
+    width: 100%;
     height:80%;
  
 }
 button{
     justify-content: center;
-    width:90px;
-    height:90px;
+    width:25%;
+    height:25%;
    border: none;
     outline: none;
     color: black;
     background: #FF9072;
     float:right;
-    margin: 0;
+    margin: none;
     padding: 0;
     font-family: "Segoe UI";
     font-size: 25px;
@@ -54,8 +54,8 @@ button{
      background: #1BB284;
   
 
-    width:90px;
-    height: 180px;
+    width:25%;
+    height: 50%;
     float: right;
     color: white;
 }
@@ -64,14 +64,14 @@ button{
     border-top: none;
     border-bottom: none;
     color: white;
-    width: 90px;
-    height: 90px;
+    width: 25%;
+    height: 25%;
 }
 #multiplicacion{
     background: #FF9072;
-    width: 180px;
-    height:90px; 
-    border-bottom: none;
+    width: 50%;
+
+  
 }
 .signos{
     background: #1BB284;
@@ -79,8 +79,8 @@ button{
 }
 #c{
     background: #FF7C59;
-    width: 90px;
-    height: 90px;
+    width: 25%;
+    height: 25%;
 }
 .operaciones{
     position: fixed;
@@ -88,8 +88,8 @@ button{
     height: 100%;
     background:#1BB284;
    
-    left: -300px;
-    transition: .5s all;
+    left: -330px;
+    transition: 1s all;
     box-shadow: 0px 0px 15px 0px black;
 }
 .operaciones textarea{
