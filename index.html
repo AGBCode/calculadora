@@ -1,0 +1,137 @@
+<html>
+    
+    <head>
+       <meta charset="utf-8">
+       
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+      <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    </head>
+    
+    <body>
+    <div class="operaciones" id="operacion">
+        <textarea id="txt" placeholder="Escribe algo"></textarea>
+        <button onclick="guardar()">Guardar</button>
+    </div>
+ <article>
+    <div class="resultado"  id="hola">
+        
+    </div>
+           <div class="b">
+          <button onclick="Clave()" class="upper"><img src="img/Out.png"></button>     
+          <button class="upper" value="(">(</button>     
+          <button class="upper" value=")">)</button>     
+          <button class="upper" value="^">∧</button>
+          <button class="signos" value="/">/</button>     
+          <button value="9">9</button>     
+          <button value="8">8</button>     
+          <button value="7">7</button> 
+          <button value="*" class="signos">x</button>    
+          <button value="6">6</button>     
+          <button value="5">5</button>     
+          <button value="4">4</button>   
+          <button value="-" class="signos">-</button> 
+        
+            <button value="3">3</button>   
+            <button value="2">2</button>   
+            <button value="1">1</button> 
+            
+            <button value="+" id="suma">+</button>  
+            <button value="%">%</button>  
+            <button value=".">.</button>   
+               <button value="0" >0</button>
+                
+               <button onclick="resultado()" id="multiplicacion">=</button>
+               <button id="c" onclick="borrar()">C</button>
+           
+           </div>
+        </article>
+        
+        
+        
+        <script>
+    var res=document.getElementById("hola");
+            window.addEventListener("load", function(){
+       var z=document.getElementsByTagName('button');
+           
+   for(var i=0;i<z.length;i++){
+ 
+z[i].addEventListener('click',function(){
+
+   
+        res.innerHTML+=this.value;
+        res.style.paddingTop="20px";
+ });
+        
+   }
+                
+               
+            })
+            
+            
+            function borrar(){
+                
+               res.innerHTML=" ";
+            }
+            function resultado() {
+
+            var  operacion= res.innerHTML=eval((res.innerHTML));
+            localStorage.setItem("operacion",operacion);    
+                
+                
+            }
+          //operacion es mi div donde tengo mi textarea principal (en donde escribo).
+            var operacion = document.getElementById('operacion');
+            //este es el textarea que creamos lo alcenamos en esta variable llamada textarea
+            var textarea = document.createElement("textarea");
+            var contador = 0;
+            
+        function guardar(){
+          //Esta variable representa el textarea que esta dentro 
+            //del div.
+            var texto = document.getElementById('txt');
+            /*guardo el valor del textarea....con texto.value
+            en localStorage */
+          
+            localStorage.setItem('texto',texto.value);
+            
+         
+             /*le doy el valor al textarea que creamos*/ 
+            var dos = textarea.value = texto.value;
+            //guardo el valor en localstorage(mi variable esta bien fea. no se poorque lse puse dos. tu ponle el que quieras)
+            var nota = dos;
+            localStorage.setItem('nota',nota);
+            
+                 contador++;            
+        }
+            //aqui mostramos la nota con es texto que guardamos anteriormente cada vez que cague la pagina
+             window.addEventListener('load', function() {
+           
+           //lequitamos la escritura al textarea que creamos (ojo el que tedije que np se podia escribir)
+                if(localStorage.getItem("nota")==null){
+                   localStorage.setItem("nota","no tienes notas");
+                }
+                 
+                 
+            textarea.setAttribute('disabled',"disabled");
+            
+                 
+            textarea.classList.add('.notas');
+            operacion.appendChild(textarea);
+            textarea.value+=localStorage.getItem('nota');
+            })
+             function Clave(){
+                 if(res.innerHTML == 007){
+                     
+                operacion.style.left = '0px';
+                 }
+             }
+           window.addEventListener('touchmove',function() {
+               
+               operacion.style.left = "-300px";
+               
+           })
+            
+        </script>
+    </body> 
+</html>
