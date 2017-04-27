@@ -9,10 +9,7 @@
     </head>
     
     <body>
-    <div class="operaciones" id="operacion">
-        <textarea id="txt" placeholder="Escribe algo"></textarea>
-        <button onclick="guardar()">Guardar</button>
-    </div>
+    
  <article>
     <div class="resultado"  id="hola">
         
@@ -48,7 +45,10 @@
            </div>
         </article>
         
-        
+        <div class="operaciones" id="operacion">
+        <textarea id="txt" placeholder="Escribe algo"></textarea>
+        <button onclick="guardar()">Guardar</button>
+    </div>
         
         <script>
     var res=document.getElementById("hola");
@@ -127,7 +127,7 @@ z[i].addEventListener('click',function(){
                 operacion.style.left = '0px';
                  }
              }
-           window.addEventListener('touchmove',function() {
+           operacion.addEventListener('touchmove',function() {
                
                operacion.style.left = "-330px";
                
