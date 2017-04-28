@@ -19,7 +19,7 @@
           <button onclick="Clave()" class="upper"><img src="img/Out.png"></button>     
           <button class="upper" value="(">(</button>     
           <button class="upper" value=")">)</button>     
-          <button class="upper" value="^">∧</button>
+          <button class="upper" value="^">^</button>
           <button class="signos" value="/">/</button>     
           <button value="9">9</button>     
           <button value="8">8</button>     
@@ -36,7 +36,7 @@
             
             <button value="+" id="suma">+</button>  
             <button value="%">%</button>  
-            <button value=".">.</button>   
+            <button value=",">.</button>   
                <button value="0" >0</button>
                 
                <button onclick="resultado()" id="multiplicacion">=</button>
@@ -48,7 +48,7 @@
         <div class="operaciones" id="operacion">
         <textarea id="txt" placeholder="Escribe algo"></textarea>
         <button onclick="guardar()">Guardar</button>
-        
+       
     </div>
         
         <script>
@@ -76,12 +76,12 @@ z[i].addEventListener('click',function(){
                res.innerHTML=" ";
             }
             function resultado() {
-
-            var  operacion= res.innerHTML=eval((res.innerHTML));
-            localStorage.setItem("operacion",operacion);    
+  
+            var  operacion= res.innerHTML=eval(res.innerHTML);
+            
               
-                
             }
+            
           //operacion es mi div donde tengo mi textarea principal (en donde escribo).
             var operacion = document.getElementById('operacion');
             //este es el textarea que creamos lo alcenamos en esta variable llamada textarea
@@ -107,6 +107,7 @@ z[i].addEventListener('click',function(){
                  contador++;            
         }
             //aqui mostramos la nota con es texto que guardamos anteriormente cada vez que cague la pagina
+         
              var button = document.createElement('button');
              window.addEventListener('load', function() {
            
@@ -117,8 +118,7 @@ z[i].addEventListener('click',function(){
                  
                  
             textarea.setAttribute('disabled',"disabled");
-            
-                 
+         
             textarea.classList.add('.notas');
             operacion.appendChild(textarea);
             textarea.value+=localStorage.getItem('nota');
@@ -139,28 +139,44 @@ z[i].addEventListener('click',function(){
              operacion.addEventListener("touchmove",esconder);
             
             
+            /*
             
-            
-            textarea.addEventListener('touchstart',function(e){        
+            textarea.addEventListener('touchmove',function(e){        
                evento=e;                   
-     
+     var obj=evento.changedTouches[0];
+                dist=0;
+                startY=obj.pageY;
+                startX=obj.pageX;
+                console.log(startX+",,"+startY)
           
-     
+    
                 operacion.removeEventListener("touchmove",esconder);
                 botones.addEventListener("touchmove",esconderdos);
             
-            });
-                              
-            function esconder() {
-                       if(!evento){
+            });*/
+                  var obj2;
+            var startX;
+            var startY;
+            function esconder(e) {
+               obj2= e.changedTouches[0];
+                 startY=obj2.pageY;
+                startX=obj2.pageX;
+               
+              
+                    if(startY > 480 || startY < 318) {
                operacion.style.left = "-330px";
+                        e.preventDefault();
+                       }else{
+                           
                        }
                 
            }
-            function esconderdos() {
-                   
-               operacion.style.left = "-330px";
+            botones.addEventListener("touchmove",esconderdos);
+            function esconderdos(e) {
+                   if(startY<500 || startY>310){
                       
+              operacion.style.left = "-330px";
+                   }
            }
            
         button.addEventListener('click', function () {
