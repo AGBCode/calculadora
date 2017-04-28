@@ -15,7 +15,7 @@
         
     </div>
           <article>
-           <div class="b">
+           <div class="b" id="botones">
           <button onclick="Clave()" class="upper"><img src="img/Out.png"></button>     
           <button class="upper" value="(">(</button>     
           <button class="upper" value=")">)</button>     
@@ -48,6 +48,7 @@
         <div class="operaciones" id="operacion">
         <textarea id="txt" placeholder="Escribe algo"></textarea>
         <button onclick="guardar()">Guardar</button>
+        
     </div>
         
         <script>
@@ -78,7 +79,7 @@ z[i].addEventListener('click',function(){
 
             var  operacion= res.innerHTML=eval((res.innerHTML));
             localStorage.setItem("operacion",operacion);    
-                
+              
                 
             }
           //operacion es mi div donde tengo mi textarea principal (en donde escribo).
@@ -106,6 +107,7 @@ z[i].addEventListener('click',function(){
                  contador++;            
         }
             //aqui mostramos la nota con es texto que guardamos anteriormente cada vez que cague la pagina
+             var button = document.createElement('button');
              window.addEventListener('load', function() {
            
            //lequitamos la escritura al textarea que creamos (ojo el que tedije que np se podia escribir)
@@ -120,6 +122,10 @@ z[i].addEventListener('click',function(){
             textarea.classList.add('.notas');
             operacion.appendChild(textarea);
             textarea.value+=localStorage.getItem('nota');
+                 
+               button.innerHTML = "borrar";
+               operacion.appendChild(button);
+                 
             })
              function Clave(){
                  if(res.innerHTML == 007){
@@ -127,11 +133,42 @@ z[i].addEventListener('click',function(){
                 operacion.style.left = '0px';
                  }
              }
-           operacion.addEventListener('touchmove',function() {
-               
+          var botones=document.getElementById('botones');
+           
+    var evento;
+             operacion.addEventListener("touchmove",esconder);
+            
+            
+            
+            
+            textarea.addEventListener('touchstart',function(e){        
+               evento=e;                   
+     
+          
+     
+                operacion.removeEventListener("touchmove",esconder);
+                botones.addEventListener("touchmove",esconderdos);
+            
+            });
+                              
+            function esconder() {
+                       if(!evento){
                operacion.style.left = "-330px";
-               
-           })
+                       }
+                
+           }
+            function esconderdos() {
+                   
+               operacion.style.left = "-330px";
+                      
+           }
+           
+        button.addEventListener('click', function () {
+            
+       localStorage.setItem("nota",textarea.value="");
+            
+            
+        });
             
         </script>
     </body> 

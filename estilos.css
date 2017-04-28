@@ -2,20 +2,25 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+       background: #FF9072;
+}
 .resultado{
-    display: flex;
+    
+    overflow: scroll;
+  
+ display: flex;
     justify-content:flex-end;
     width: 100%;
-    height:calc(100% - 76%);
+    height:calc(100% - 70%);
+    overflow:scroll;
     background: black;
     color: white;
     font-family: 'Poiret One', cursive;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 300;
     padding-right: 20px;
-    box-sizing: border-box;
-   
+  box-sizing: border-box;
 }
 img{
     width: 25px;
@@ -33,7 +38,7 @@ position: fixed;
 .b{
 
     width: 100%;
-    height:calc(100% - 20%); 
+    height:calc(100% - 25%); 
 }
 button{
     justify-content: center;
@@ -50,6 +55,7 @@ button{
     font-size: 25px;
     font-weight: 100;
 }
+
 #suma{
      background: #1BB284;
   
@@ -84,12 +90,12 @@ button{
 }
 .operaciones{
     position: fixed;
-    width: 80%;
-    height: 100%;
+    width: 75%;
+    height:84%;
     background:#1BB284;
    
     left: -330px;
-    transition: 1s all;
+    transition: .8s all;
     box-shadow: 0px 0px 15px 0px black;
 }
 .operaciones textarea{
